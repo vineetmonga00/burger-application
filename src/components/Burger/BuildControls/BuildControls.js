@@ -3,7 +3,7 @@ import classes from './BuildControls.css';
 import BuildControl from './BuildControl/BuildControl.js';
 const controls = [
   {label:'Salad', type: 'salad'},
-  {label:'Bacon', type: 'bacon'},
+  {label:'Chicken', type: 'chicken'},
   {label:'Cheese', type: 'cheese'},
   {label:'Meat', type: 'meat'},
 ]
@@ -21,6 +21,7 @@ const buildControls = (props) => (
 
       />
     ))}
+    <button className={classes.OrderButton}>ORDER NOW</button>
   </div>
 )
 
