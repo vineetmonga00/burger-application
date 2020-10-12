@@ -1,0 +1,18 @@
+.OrderSummary {
+    position: fixed;
+    background-color: white;
+    z-index: 500;
+    width: 70%;
+    padding: 16px;
+    left: 15%;
+    top: 30%;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+@media (min-width:600px) {
+    .OrderSummary {
+        width: 500px;
+        left: calc(50% - 250px)
+    }
+}

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Aux from '../../hoc/Auxiliary';
 import Burger from '../../components/Burger/Burger';
 import BuildControls from '../../components/Burger/BuildControls/BuildControls';
-
+import OrderSummary from '../../components/Burger/OrderSummary/OrderSummary'
 const INGREDIENT_PRICES = {
   salad: 15,
   cheese: 27,
@@ -18,8 +18,12 @@ class BurgerBuilder extends Component {
       meat: 0
     },
     totalPrice: 20,
+    orderSummaryFlag: false,
   }
-
+  displayOrderSummaryHandler = () => {
+    const updatedOrderSummaryFlag = this.state.orderSummaryFlag;
+    this.setState({orderSummaryFlag: !updatedOrderSummaryFlag});
+  }
   addIngredientHandler = (type) => {
     const oldCount = this.state.ingredients[type];
     const updatedCount = oldCount + 1;
@@ -63,11 +67,13 @@ class BurgerBuilder extends Component {
     return (
       <Aux>
         <Burger ingredients={this.state.ingredients}/>
+        {this.state.orderSummaryFlag ?<OrderSummary ingredients={this.state.ingredients}/> : null}
         <BuildControls
           disabled={disabledInfo}
           ingredientAdded={this.addIngredientHandler}
           ingredientRemoved={this.removeIngredientHandler}
           price={this.state.totalPrice}
+          displayOrderSummary={this.displayOrderSummaryHandler}
         />
       </Aux>
     )

@@ -21,7 +21,7 @@ const buildControls = (props) => (
 
       />
     ))}
-    <button className={classes.OrderButton}>ORDER NOW</button>
+    <button onClick={props.displayOrderSummary} className={classes.OrderButton}>ORDER NOW</button>
   </div>
 )
 
